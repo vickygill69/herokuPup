@@ -6,7 +6,7 @@ var app = express()
 app.set('port', (process.env.PORT || 80))
 
 app.get('/', function(request, response) {
-  response.send('Hello World!');
+ 
    (async () => {
   puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
   const page = await browser.newPage();
@@ -14,6 +14,7 @@ app.get('/', function(request, response) {
   await page.screenshot({path: 'example.png'});
 
   await browser.close();
+     await response.send('Hello World!');
 })();
 })
 
